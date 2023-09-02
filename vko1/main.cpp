@@ -5,17 +5,13 @@
 
 using namespace std;
 
-int main() {
-    // Initialize rng with the current timestamp.
-    srand(std::time(0));
-    int maxTarget = 20;
-
-    cout << "Guess a random number I'm thinking of between 1 and " << maxTarget << endl;
-
+void game(int maxTarget) {
     // Modulo limits the generated number between 0 and maxTarget-1
     // We want to guess between 1 and maxTarget so we add 1 to target
     int target = rand() % maxTarget + 1;
     int guess;
+
+    cout << "Guess a random number I'm thinking of between 1 and " << maxTarget << endl;
 
     do {
         cin >> guess;
@@ -25,8 +21,16 @@ int main() {
 
     } while (guess != target);
 
-    cout << "Your guess was correct!" << endl
-         << "Press any key to exit." << endl;
+    cout << "Your guess was correct!" << endl;
+}
+
+int main() {
+    // Initialize rng with the current timestamp.
+    srand(std::time(0));
+    int maxTarget = 20;
+
+    game(maxTarget);
+    cout << "Press any key to exit." << endl;
 
     // Clear the input buffer before waiting for the user to press any key.
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
