@@ -120,7 +120,7 @@ void MainWindow::clearClickedHandler() {
 }
 
 void MainWindow::setWidgetColors() {
-    static QPushButton* pushButtons[] = {
+    static QPushButton* const pushButtons[] = {
         ui->pushButtonAdd,
         ui->pushButtonSub,
         ui->pushButtonMul,
@@ -133,7 +133,7 @@ void MainWindow::setWidgetColors() {
     else if (state == 1)
         pushButtons[op]->setStyleSheet("background-color: Coral");
 
-    static QLineEdit* lineEdits[] = {
+    static QLineEdit* const lineEdits[] = {
         ui->lineEditOperand1,
         ui->lineEditOperand2,
         ui->lineEditResult
